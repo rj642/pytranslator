@@ -1,6 +1,7 @@
 from googletrans import Translator
 from fastapi import FastAPI, Request
 from src.models.LanguageInput import UserInput, UserOutput
+import uvicorn
 
 translator = Translator()
 
@@ -15,3 +16,7 @@ def translate_now(body: UserInput):
     data = translator.translate(text, to_lang, from_lang)
     user_output = UserOutput(output_text = data.text)
     return user_output
+
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
