@@ -1,4 +1,3 @@
-from email.mime import application
 from googletrans import Translator
 from fastapi import FastAPI, Request
 from src.models.LanguageInput import UserInput, UserOutput
